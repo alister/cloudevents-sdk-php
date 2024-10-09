@@ -13,7 +13,7 @@ final class Normalizer implements NormalizerInterface
     /**
      * @var array{subsecondPrecision?: int<0, 6>}
      */
-    private array $configuration;
+    private $configuration;
 
     /**
      * @param array{subsecondPrecision?: int<0, 6>} $configuration

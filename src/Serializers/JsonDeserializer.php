@@ -14,7 +14,10 @@ use JsonException;
 
 final class JsonDeserializer implements DeserializerInterface
 {
-    private DenormalizerInterface $denormalizer;
+    /**
+     * @var \CloudEvents\Serializers\Normalizers\V1\DenormalizerInterface
+     */
+    private $denormalizer;
 
     public function __construct(DenormalizerInterface $denormalizer)
     {

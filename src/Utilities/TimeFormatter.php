@@ -59,7 +59,7 @@ final class TimeFormatter
         $time = \strtoupper($time);
 
         /** @psalm-suppress UndefinedFunction */
-        $decoded = \str_contains($time, '.')
+        $decoded = strpos($time, '.') !== false
             ? DateTimeImmutable::createFromFormat(self::RFC3339_EXTENDED_FORMAT, self::truncateOverPrecision($time), new DateTimeZone(self::TIME_ZONE))
             : DateTimeImmutable::createFromFormat(self::RFC3339_FORMAT, $time, new DateTimeZone(self::TIME_ZONE));
 

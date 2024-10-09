@@ -12,7 +12,10 @@ use CloudEvents\Serializers\Normalizers\V1\NormalizerInterface;
 
 final class JsonSerializer implements SerializerInterface
 {
-    private NormalizerInterface $normalizer;
+    /**
+     * @var \CloudEvents\Serializers\Normalizers\V1\NormalizerInterface
+     */
+    private $normalizer;
 
     public function __construct(NormalizerInterface $normalizer)
     {

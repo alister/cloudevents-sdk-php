@@ -18,7 +18,7 @@ final class Unmarshaller implements UnmarshallerInterface
     /**
      * @var array<string, array{deserializer: DeserializerInterface, contentTypes: list<string>}>
      */
-    private array $configuration;
+    private $configuration;
 
     /**
      * @param array<string, array{deserializer: DeserializerInterface, contentTypes: list<string>}> $configuration
@@ -117,7 +117,7 @@ final class Unmarshaller implements UnmarshallerInterface
         foreach ($headers as $key => $values) {
             $key = (string) $key;
             /** @psalm-suppress UndefinedFunction */
-            if (\str_starts_with($key, 'ce-')) {
+            if (strncmp($key, 'ce-', strlen('ce-')) === 0) {
                 $attributes[substr($key, 3)] = implode(', ', $values);
             }
         }
